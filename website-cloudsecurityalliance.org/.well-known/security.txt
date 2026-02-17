@@ -1,0 +1,5 @@
+Canonical: https://cloudsecurityalliance.org/.well-known/security.txt
+Contact: mailto:security@cloudsecurityalliance.org
+Expires: 2027-01-01T00:00:00Z
+Policy: https://cloudsecurityalliance.org/security
+Preferred-Languages: en
