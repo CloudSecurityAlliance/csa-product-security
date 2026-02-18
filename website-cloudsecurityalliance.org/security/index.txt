@@ -1,0 +1,29 @@
+What is in scope for security reports to security@cloudsecurityalliance.org:
+
+Domains (and subdomains):
+
+- cloudsecurityalliance.org
+- csachapter.io
+- star.watch
+- webfinger.io
+
+CSA also operates many other domains (e.g., event sites, redirects, and aliases). These are hosted on third-party platforms — please report any vulnerabilities in those services directly to the respective platform provider.
+
+What is in scope for security reports via GitHub Private Vulnerability Reporting:
+
+- https://github.com/CloudSecurityAlliance/*
+
+Report vulnerabilities through the Security tab of the affected repository. See https://github.com/CloudSecurityAlliance/csa-product-security for full details on CSA's product security program.
+
+What is not in scope:
+
+- cloudsecurityalliance.auth0.com/* (please file an issue with Auth0 at https://auth0.com/responsible-disclosure-policy)
+- Any "best practices" for SPF/DKIM/DMARC/BIMI/TLS/HTTP HEADERS
+
+Bug Bounty:
+
+We are a non-profit organization and do not provide monetary rewards for vulnerability reports.
+
+Acknowledgements:
+
+We do not maintain a separate acknowledgements page. For GitHub repositories, reporters are automatically credited on published security advisories.
