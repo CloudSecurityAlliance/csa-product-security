@@ -1,30 +1,41 @@
 # Pending Actions
 
-Actions that need to be completed outside of this repository to fully integrate the product security program.
+Version: 1.0 (2026-02-25)
+
+Actions that need to be completed outside this repository to fully integrate the
+product security program.
 
 ## Update cloudsecurityalliance.org/security page
 
-**Status**: Pending
+**Status**: Completed (2026-02-25)
 
-The existing security policy page at [cloudsecurityalliance.org/security](https://cloudsecurityalliance.org/security) has an out-of-scope section that reads:
-
-> What is out of scope for security reports:
-> - github.com/cloudsecurityalliance/* (please file an issue in GitHub or check the SECURITY.MD for specifics)
-
-Changes needed:
-
-1. Change the heading to:
-   > What is out of scope for security reports sent to security@cloudsecurityalliance.org:
-
-2. Fix the capitalization and update the parenthetical:
-   > github.com/CloudSecurityAlliance/* (see our [Product Security Program](https://github.com/CloudSecurityAlliance/csa-product-security) for reporting instructions)
-
-This is handled by CSA's web team, not through this repository.
+The page now presents the three asset categories (Websites and Services,
+Software, AI Prompts and Instructions), updated out-of-scope text, and routing
+guidance consistent with this repository. Future edits should keep the page and
+the governance framework in sync.
 
 ## Update security.txt
 
 **Status**: Pending
 
-The [security.txt](https://cloudsecurityalliance.org/.well-known/security.txt) file should be updated to add a reference to the product security program. This could be done by adding a comment or by referencing this repository.
+The [security.txt](https://cloudsecurityalliance.org/.well-known/security.txt)
+entry should link directly to this repository (governance framework and
+disclosure policy) so automated clients can discover the program details. This
+file is maintained in CSA’s CMS.
 
-The security.txt is maintained separately from this repository.
+## Announce governance framework
+
+**Status**: Pending
+
+CSA communications should publish a short update (blog, newsletter, or member
+mailing) summarizing the new governance framework and AI scope additions. This
+helps reporters and partners discover the changes outside of GitHub.
+
+## Link governance framework from security page
+
+**Status**: Pending
+
+Add a prominent link on
+[cloudsecurityalliance.org/security](https://cloudsecurityalliance.org/security)
+to `docs/governance-framework.md` (or a rendered copy) so reporters can access
+the full lifecycle without browsing the repository.

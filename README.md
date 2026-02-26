@@ -1,51 +1,92 @@
 # CSA Product Security
 
-This repository is the authoritative home for the Cloud Security Alliance's (CSA) product security program. It documents how CSA handles security vulnerabilities in its own software and services hosted on GitHub.
+This repository is the authoritative home for the Cloud Security Alliance's (CSA)
+product security program. It documents scope, reporting channels, governance, and
+service levels for CSA websites, services, software, and AI prompts and
+instructions.
 
-## What This Covers
+## Program scope
 
-**CSA software on GitHub**: All software and services hosted under the [`CloudSecurityAlliance`](https://github.com/CloudSecurityAlliance) GitHub organization. Report vulnerabilities using GitHub's Private Vulnerability Reporting (PVR).
+- **Websites and services** — `cloudsecurityalliance.org`, `csachapter.io`,
+  `star.watch`, `webfinger.io`, hosted portals, and first-party APIs. Report via
+  `security@cloudsecurityalliance.org`.
+- **Software** — Repositories under
+  [`CloudSecurityAlliance`](https://github.com/CloudSecurityAlliance), MCP servers
+  and clients, SDKs, and extensions. Report through GitHub's Private Vulnerability
+  Reporting (PVR).
+- **AI prompts and instructions** — CSA-published prompts, guardrails, skills, and
+  system instructions, including those embedded in MCP servers and clients. Report
+  through GitHub PVR if stored in a repository or via
+  `security@cloudsecurityalliance.org` if published elsewhere.
 
-**CSA web properties**: Security issues related to CSA websites and services (cloudsecurityalliance.org, etc.) are handled through a separate process — see CSA's [security.txt](https://cloudsecurityalliance.org/.well-known/security.txt) (RFC 9116).
+The [governance framework](docs/governance-framework.md) explains how these
+categories map to intake, handling, disclosure, and maturity goals.
 
-## Reporting a Vulnerability
+## Reporting a vulnerability
 
-Use **GitHub's Private Vulnerability Reporting (PVR)**:
+Choose the channel based on where you found the issue:
 
-1. Go to the **Security** tab of the affected repository
-2. Click **"Report a vulnerability"**
-3. Fill out the form
+- **GitHub PVR** (preferred for software and repo-hosted AI artifacts): open the
+  repository’s **Security** tab, select **Report a vulnerability**, and provide
+  details. GitHub requires a logged-in account and credits the reporter
+  automatically on published advisories.
+- **Email `security@cloudsecurityalliance.org`** (for websites, services, or
+  non-repo AI artifacts): include reproduction details, impact, and any preferred
+  credit instructions. This channel supports anonymous or pseudonymous
+  submissions and PGP on request.
 
-This is enabled across all public repositories in the `CloudSecurityAlliance` organization. Every repo inherits a default [SECURITY.md](https://github.com/CloudSecurityAlliance/.github/blob/main/SECURITY.md) that explains this.
+CSA does not run a bug bounty. Safe harbor applies to good-faith reporters who
+follow the [disclosure policy](docs/vulnerability-disclosure-policy.md).
 
-## How CSA Handles Reports
+## How CSA handles reports
 
-1. **Receive** — PVR report comes in, visible only to CSA maintainers and the reporter
-2. **Acknowledge** — CSA acknowledges receipt and begins triage
-3. **Triage** — Assess severity, determine affected products/versions
-4. **Assign Identifiers** — GHSA identifier is assigned automatically; CVE ID is requested where appropriate
-5. **Publish** — CSA's default is to publish advisories openly and quickly. Public disclosure is the norm, not the exception. Advisories only remain private temporarily if there is a specific reason to delay. Maximum timeline from report to public disclosure is 90 days
-6. **Fix** — Develop and release a fix
-7. **Update** — Update the published advisory with fix details, affected versions, etc.
+1. **Intake** — Receive the report, acknowledge, and log the case.
+2. **Security qualification** — Validate the issue, remove accidental secrets, and
+   quarantine abuse.
+3. **Scope and routing** — Map to the correct asset category, ensure the proper
+   channel, and redirect out-of-scope items.
+4. **Confirmation** — Reproduce or clearly explain the issue, capture evidence,
+   and gauge impact.
+5. **Remediation planning** — Engage owners, track fixes, and define mitigations.
+6. **Disclosure decision** — Coordinate timelines, embargoes, and advisory
+   format.
+7. **Publication** — Publish through GitHub advisories, website updates, or
+   partner notices; credit when the platform supports it and both parties agree.
+8. **Closure** — Verify fixes, update timelines, and archive correspondence.
 
-GitHub automatically credits the reporter on the published advisory.
+CSA targets **acknowledgment within 5 business days**, **status updates every 30
+days**, and **remediation or disclosure within 90 days** unless a different
+timeline is mutually agreed. See [SLA commitments](docs/sla-commitments.md) for
+details.
 
-## Documentation
+## Key documents
 
-| Document | Description |
-|---|---|
-| [Vulnerability Disclosure Policy](docs/vulnerability-disclosure-policy.md) | How vulnerabilities are reported and disclosed (aligned with ISO 29147) |
-| [Vulnerability Handling Process](docs/vulnerability-handling-process.md) | How CSA handles vulnerabilities internally (aligned with ISO 30111) |
-| [Severity Classification](docs/severity-classification.md) | How CSA classifies vulnerability severity |
-| [SLA Commitments](docs/sla-commitments.md) | Response time commitments (currently being defined) |
-| [GitHub Configuration](docs/github-configuration.md) | What CSA has configured in GitHub and why |
-| [Decision Log](docs/decision-log.md) | Key decisions made and alternatives considered |
-| [Pending Actions](docs/pending-actions.md) | Actions needed outside this repo (website updates, etc.) |
+- [Governance Framework](docs/governance-framework.md) — Unified scope,
+  lifecycle, maturity roadmap, and transparency commitments.
+- [Vulnerability Disclosure Policy](docs/vulnerability-disclosure-policy.md) —
+  Reporter-facing guidance on scope, channels, and safe harbor.
+- [Vulnerability Handling Process](docs/vulnerability-handling-process.md) —
+  Internal lifecycle execution and role definitions.
+- [Severity Classification](docs/severity-classification.md) — Severity model
+  ([CVSS](https://www.first.org/cvss/)/[AIVSS](https://aivss.owasp.org) inputs) across asset categories.
+- [SLA Commitments](docs/sla-commitments.md) — Authoritative response-time
+  targets.
+- [Decision Log](docs/decision-log.md) — Key governance decisions and
+  alternatives considered.
+- [Pending Actions](docs/pending-actions.md) — Follow-up work tracked outside
+  this document.
+- [AGENTS Guide](AGENTS.md) — Contributor instructions for human and AI
+  assistants.
 
-## Design Principles
+## Design principles
 
-- **GitHub-native**: Everything runs through GitHub's built-in security features — PVR, security advisories, Dependabot. No external tools
-- **Open by default**: Advisories are published quickly and openly. CSA's software is largely open source and our security process reflects that
-- **Machine-readable**: Structured data formats, consistent schemas, predictable naming conventions. This program is designed to be operated with AI assistance
-- **Standards-aligned**: ISO 29147 (vulnerability disclosure), ISO 30111 (vulnerability handling), RFC 9116 (security.txt)
-- **Simple**: Standard GitHub configuration, no customizations, minimal process overhead. CSA is a nonprofit with limited resources — the process must be sustainable
+- **Transparency with safeguards** — Publish governance, policies, and roadmaps
+  while keeping embargoed data confidential until release.
+- **Reporter-aligned scope** — Asset categories mirror the public security page
+  so routing stays simple.
+- **Standards-aligned** — RFC 9116, CVE-compatible practices, CVSS + AIVSS
+  context.
+- **Single source of truth** — GitHub remains the authoritative system for
+  software advisories; email handles other assets without duplicating state.
+- **Practical maturity** — Roadmap focuses on capabilities CSA can operate today
+  while paving the way for consistent CVE assignment.
