@@ -15,7 +15,11 @@ CSA also operates many other domains (e.g., event sites, redirects, and aliases)
 
 Report via: GitHub Private Vulnerability Reporting
 
-- https://github.com/CloudSecurityAlliance/*
+- https://github.com/CloudSecurityAlliance/
+- https://github.com/CloudSecurityAlliance-Chatbots/
+- https://github.com/CloudSecurityAlliance-DataSets/
+- https://github.com/modelcontextprotocol-security/
+- https://github.com/RiskRubric/
 
 Report vulnerabilities through the Security tab of the affected repository. See https://github.com/CloudSecurityAlliance/csa-product-security for full details on CSA's product security program.
 

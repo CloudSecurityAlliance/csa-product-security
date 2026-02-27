@@ -5,7 +5,12 @@ The Cloud Security Alliance (CSA) documents its full product security program in
 ## Scope
 
 - **Websites and services** such as `cloudsecurityalliance.org`, `csachapter.io`, `star.watch`, `webfinger.io`, hosted portals, and first-party APIs.
-- **Software** in the `CloudSecurityAlliance` GitHub organization, including MCP servers/clients, SDKs, and extensions.
+- **Software** in CSA-managed GitHub organizations, including MCP servers/clients, SDKs, and extensions:
+  - `CloudSecurityAlliance`
+  - `CloudSecurityAlliance-Chatbots`
+  - `CloudSecurityAlliance-DataSets`
+  - `modelcontextprotocol-security`
+  - `RiskRubric`
 - **AI prompts and instructions** published by CSA, whether embedded in MCP artifacts or distributed separately.
 
 General model-behavior research without a CSA artifact, third-party platforms, or upstream dependencies we do not control are out of scope. See the [Vulnerability Disclosure Policy](https://github.com/CloudSecurityAlliance/csa-product-security/blob/main/docs/vulnerability-disclosure-policy.md#out-of-scope) for details.
