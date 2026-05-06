@@ -78,6 +78,18 @@ details.
 - [AGENTS Guide](AGENTS.md) — Contributor instructions for human and AI
   assistants.
 
+## CSA research programs
+
+CSA runs internal research programs in CVE assignment, CWE submissions,
+vulnerability scoring (CVSS and AIVSS), CVE enrichment, and AI-supported
+CNA operations. The practice described in this repo is informed by that
+work; mature material from those programs flows out through this repo
+and the CSA website.
+
+If you're interested in collaborating, contributing perspective, or
+learning more about any of this work, contact
+[kseifried@cloudsecurityalliance.org](mailto:kseifried@cloudsecurityalliance.org).
+
 ## Design principles
 
 - **Transparency with safeguards** — Publish governance, policies, and roadmaps
