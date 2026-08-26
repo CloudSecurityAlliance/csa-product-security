@@ -14,6 +14,27 @@ Software, AI Prompts and Instructions), updated out-of-scope text, and routing
 guidance consistent with this repository. Future edits should keep the page and
 the governance framework in sync.
 
+## Reflect CSA's CNA status in the disclosure documentation
+
+**Status**: Pending
+
+CSA operates as a CVE Numbering Authority, but nothing in this repository says
+so. `docs/vulnerability-disclosure-policy.md` states that an advisory may
+"include a CVE ID requested via GitHub", and `README.md` mentions CNA only as a
+research program informing this practice. A reporter reading the current policy
+would reasonably conclude CSA depends on GitHub as its CNA.
+
+Decide whether CSA assigns CVE IDs for its own products directly, and if so
+update the disclosure policy, `docs/vulnerability-handling-process.md`, and the
+root `SECURITY.md` so the identifier path matches what actually happens. The
+governance framework and SLA commitments should be checked for the same
+assumption.
+
+This surfaced while auditing `CloudSecurityAlliance/csa-skilljar` against this
+program on 2026-08-26. That repository's `SECURITY.md` deliberately delegates all
+process to this one and does not restate the CVE mechanism, so it needs no change
+either way.
+
 ## Update security.txt
 
 **Status**: Pending
