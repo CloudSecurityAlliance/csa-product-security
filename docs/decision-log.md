@@ -1,6 +1,6 @@
 # Decision Log
 
-Version: 1.1 (2026-08-27)
+Version: 1.2 (2026-08-28)
 
 <!-- markdownlint-disable MD013 -->
 
@@ -213,6 +213,8 @@ Key decisions made in establishing CSA's product security program, including alt
 
 ## 2026-08-27: Do not assign CVE IDs for pre-1.0 software
 
+**Superseded by**: [Define CVE eligibility as a declared version of 1.0.0 or higher](#2026-08-28-define-cve-eligibility-as-a-declared-version-of-100-or-higher) on 2026-08-28. The exclusion itself stands; the superseding entry pins down what "reaches 1.0" means.
+
 **Decision**: CSA does not assign CVE IDs for vulnerabilities in releases prior to a project's 1.0 (or equivalent general availability) release. Such reports are still triaged, remediated, and — where the repository supports it — documented in a GitHub advisory. Once a project reaches 1.0, subsequent vulnerabilities are eligible for CVE assignment.
 
 **Alternatives considered**:
@@ -222,5 +224,21 @@ Key decisions made in establishing CSA's product security program, including alt
 - **Exclude only explicitly labelled alpha/beta/preview releases**: A narrower exclusion, but it depends on labelling discipline CSA does not enforce uniformly across repositories. Not selected.
 
 **Rationale**: A CVE record carries an implicit representation that the affected software was offered as production-ready. CSA publishes pre-1.0 code for evaluation and community feedback and does not represent it as such, so assigning CVE IDs against it would misstate the maturity of the artifact and generate downstream noise in scanners and dependency tooling for software nobody was advised to deploy. Drawing the line at 1.0 is a bright-line rule that reporters and maintainers can both apply without negotiation. This is a discretionary CSA assignment policy, published as CNA Rules 3.2.6.1 requires, and not a rule imposed by the CVE Program.
+
+---
+
+## 2026-08-28: Define CVE eligibility as a declared version of 1.0.0 or higher
+
+**Decision**: CVE eligibility turns on whether the software has declared a version of `1.0.0` or higher. The declaration counts if it appears as a release tag, a GitHub Release, or a published package version — any one is sufficient, and no formal release process is required. Software carrying no version at all has not declared readiness and is not eligible.
+
+**Context**: The 2026-08-27 exclusion said "before a project's 1.0 (or equivalent general availability) release" without defining what established 1.0. Checking the CNA-scope organization against that wording showed the gap was not theoretical: of 26 public non-archived repositories, three sat at `v1.0.0` by git tag with no GitHub Release and no published package, two had releases below 1.0, and 21 had no release or tag at all. Applying the rule literally, no repository was unambiguously eligible.
+
+**Alternatives considered**:
+
+- **Require a GitHub Release or published package for 1.0.0 to count**: A stricter, more auditable signal. Not selected — it would contradict CSA's own release standard, which already treats the tag as the provenance anchor ("publish only from CI, off a tag"). A tag authoritative enough to build a release from is authoritative enough to mark readiness.
+- **Treat software with no version as eligible**: Unversioned software is the least likely to be production-ready, so treating absence of a version as eligibility would invert the intent of the exclusion. Not selected.
+- **Replace the version test with a general-availability judgment per report**: Avoids depending on version hygiene, but reintroduces the per-report judgment call the bright-line rule was chosen to remove. Not selected.
+
+**Rationale**: A version of `1.0.0` is a statement by the project that the software is ready for consumption, and that statement is what the exclusion is really testing. Reading the declaration from a tag, a release, or a package version keeps the test applicable to repositories at different points of release maturity without requiring every project to adopt a publishing pipeline first. Deriving eligibility from the version label also keeps this policy independent of any future organization-wide versioning standard: if such a standard lands, this rule reads whatever it produces without amendment.
 
 <!-- markdownlint-enable MD013 -->

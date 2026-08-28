@@ -1,6 +1,6 @@
 # Cloud Security Alliance vulnerability governance framework
 
-Version: 1.1 (2026-08-27)
+Version: 1.2 (2026-08-28)
 
 ## Purpose and openness
 
@@ -39,7 +39,8 @@ with the CVE Program it covers “vulnerabilities in software developed and
 maintained by the Cloud Security Alliance (`github.com/CloudSecurityAlliance/*`)”.
 Everything in the three categories is accepted, triaged, and remediated under
 this framework; only issues inside the CNA scope receive a CSA-assigned CVE ID.
-CSA also does not assign CVE IDs for pre-1.0 releases. See the
+CSA also does not assign CVE IDs for software that has not declared version
+`1.0.0` or higher. See the
 [vulnerability disclosure policy](vulnerability-disclosure-policy.md) for the
 full assignment policy, which CNA Rules 3.2.6.1 requires CSA to publish.
 
