@@ -35,7 +35,7 @@ maintained by the Cloud Security Alliance
 (`github.com/CloudSecurityAlliance/*`)"* — narrower than the program scope
 above. Reports across all three categories are accepted and remediated; only
 issues inside the CNA scope receive a CSA-assigned CVE ID, and CSA does not
-assign CVE IDs for pre-1.0 releases. The
+assign CVE IDs for software that has not declared version `1.0.0` or higher. The
 [disclosure policy](docs/vulnerability-disclosure-policy.md#cve-identifiers-and-csas-role-as-a-cna)
 carries the full assignment policy.
 
