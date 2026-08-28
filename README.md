@@ -22,6 +22,29 @@ instructions.
 The [governance framework](docs/governance-framework.md) explains how these
 categories map to intake, handling, disclosure, and maturity goals.
 
+## CVE Numbering Authority
+
+CSA is an authorized [CVE Numbering Authority](https://www.cve.org/PartnerInformation/ListofPartners/partner/CSAI)
+(CNA short name `CSAI`, CNA ID `CNA-2026-0025`) under the MITRE Top-Level Root,
+[announced 2026-04-28](https://www.cve.org/Media/News/item/news/2026/04/28/Cloud-Security-Alliance-Added-as-CNA).
+CSA assigns CVE IDs for its own software rather than requesting them from
+another organization.
+
+The registered CNA scope is *"vulnerabilities in software developed and
+maintained by the Cloud Security Alliance
+(`github.com/CloudSecurityAlliance/*`)"* — narrower than the program scope
+above. Reports across all three categories are accepted and remediated; only
+issues inside the CNA scope receive a CSA-assigned CVE ID, and CSA does not
+assign CVE IDs for pre-1.0 releases. The
+[disclosure policy](docs/vulnerability-disclosure-policy.md#cve-identifiers-and-csas-role-as-a-cna)
+carries the full assignment policy.
+
+CVE-specific correspondence (assignment questions, scope deconfliction,
+disputes, record corrections) goes to
+[cve-mgmt@cloudsecurityalliance.org](mailto:cve-mgmt@cloudsecurityalliance.org).
+Published advisories are listed at
+[labs.cloudsecurityalliance.org/advisories](https://labs.cloudsecurityalliance.org/advisories/).
+
 ## Reporting a vulnerability
 
 Choose the channel based on where you found the issue:
@@ -82,9 +105,9 @@ details.
 
 CSA runs internal research programs in CVE assignment, CWE submissions,
 vulnerability scoring (CVSS and AIVSS), CVE enrichment, and AI-supported
-CNA operations. The practice described in this repo is informed by that
-work; mature material from those programs flows out through this repo
-and the CSA website.
+CNA operations. That work informs both the practice described in this repo
+and CSA's own operation as a CNA; mature material from those programs flows
+out through this repo and the CSA website.
 
 If you're interested in collaborating, contributing perspective, or
 learning more about any of this work, contact
@@ -98,7 +121,9 @@ learning more about any of this work, contact
   so routing stays simple.
 - **Standards-aligned** — RFC 9116, CVE-compatible practices, CVSS + AIVSS
   context.
-- **Single source of truth** — GitHub remains the authoritative system for
-  software advisories; email handles other assets without duplicating state.
-- **Practical maturity** — Roadmap focuses on capabilities CSA can operate today
-  while paving the way for consistent CVE assignment.
+- **Single source of truth** — The CVE List is authoritative for CVE Records CSA
+  assigns; GitHub remains the working system for software advisories, and email
+  handles other assets without duplicating state.
+- **Practical maturity** — Roadmap focuses on capabilities CSA can operate today.
+  CVE assignment is now operational; the remaining work is consistency of record
+  quality.

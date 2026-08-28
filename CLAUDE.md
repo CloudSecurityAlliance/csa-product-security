@@ -51,6 +51,7 @@ which means most edits are multi-file edits. One document owns each fact:
 | Scope and asset categories (websites/services, software, AI prompts) | `docs/governance-framework.md` | `README.md`, `SECURITY.md`, `docs/vulnerability-disclosure-policy.md` |
 | Eight-step lifecycle | `docs/governance-framework.md` | `README.md`, `docs/vulnerability-handling-process.md` |
 | Severity model (CVSS v3.1 / OWASP AIVSS) | `docs/severity-classification.md` | `docs/governance-framework.md`, `docs/vulnerability-handling-process.md` |
+| CVE assignment policy and CNA scope | `docs/vulnerability-disclosure-policy.md` | `README.md`, `SECURITY.md`, `docs/governance-framework.md`, `docs/vulnerability-handling-process.md` |
 | Why a choice was made | `docs/decision-log.md` | — |
 | Work that must happen outside this repo | `docs/pending-actions.md` | `TODO.md` (index line per item) |
 
@@ -103,12 +104,18 @@ checkout reached through two paths. There is nothing to keep in sync between the
 
 This repo is intentionally public. Never commit reporter identities, embargoed
 advisory details, unpublished vulnerability specifics, or exploit material.
-Advisories themselves are never stored here — GitHub Security Advisories are the
-authoritative record and GHSA is the primary identifier, per
-`docs/decision-log.md`.
+Advisories themselves are never stored here. CSA is a CNA (`CSAI`,
+`CNA-2026-0025`) and assigns CVE IDs directly for software in its CNA scope; the
+CVE Record on the CVE List is authoritative, GHSA is cross-referenced, and
+published advisories are listed at `labs.cloudsecurityalliance.org/advisories/`.
 
-One caveat on identifiers: the documents currently imply CVE IDs are requested
-*through GitHub*, but CSA also operates as a CVE Numbering Authority, and
-reconciling the two is an open item (`docs/pending-actions.md` → "Reflect CSA's
-CNA status in the disclosure documentation"). Do not add or "correct" CVE
-assignment language without checking whether that decision has been made.
+Two things to keep straight when touching CVE language:
+
+- **CNA scope is narrower than PSIRT scope.** The registered scope is
+  `github.com/CloudSecurityAlliance/*` only. Other CSA GitHub orgs, websites,
+  and services are handled by the program but get no CSA-assigned CVE ID. Do not
+  widen the scope wording in the docs to match `SECURITY.md`'s five-org list —
+  that would overclaim against the cve.org record.
+- **`docs/vulnerability-disclosure-policy.md` is externally referenced.** cve.org
+  links to it as CSA's public CNA policy of record. Do not rename or move it
+  without updating the CNA record first.

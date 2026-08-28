@@ -1,6 +1,6 @@
 # Decision Log
 
-Version: 1.0 (2026-02-25)
+Version: 1.1 (2026-08-27)
 
 <!-- markdownlint-disable MD013 -->
 
@@ -117,6 +117,8 @@ Key decisions made in establishing CSA's product security program, including alt
 
 **Decision**: CSA uses GitHub's native GHSA identifiers as the primary advisory identifier and requests CVE IDs through GitHub's advisory workflow where appropriate. Both identifiers appear in published advisories.
 
+**Superseded by**: [Assign CVE IDs directly as a CNA, with CVE as the identifier of record](#2026-08-27-assign-cve-ids-directly-as-a-cna-with-cve-as-the-identifier-of-record) on 2026-08-27.
+
 **Alternatives considered**:
 
 - **CSA-specific identifiers (e.g., CSA-2026-001)**: Would require manual assignment, sequential tracking, and a mapping layer between CSA IDs, GHSA IDs, and CVE IDs. Not selected.
@@ -190,5 +192,35 @@ Key decisions made in establishing CSA's product security program, including alt
 - **Custom CSA severity model**: A proprietary scoring system would be harder to explain to reporters and less interoperable with existing tooling. Not selected.
 
 **Rationale**: CVSS is widely adopted for software and services. AIVSS is designed for AI artifacts. Using both provides consistent, machine-readable severity data aligned with the governance framework across all asset categories.
+
+---
+
+## 2026-08-27: Assign CVE IDs directly as a CNA, with CVE as the identifier of record
+
+**Decision**: CSA became an authorized CVE Numbering Authority on 2026-04-28 (CNA short name `CSAI`, CNA ID `CNA-2026-0025`, MITRE Top-Level Root, organization type Vendor). CSA assigns CVE IDs directly for software in its CNA scope. The CSA-assigned CVE ID is the identifier of record in published advisories; GHSA identifiers continue to be issued automatically for GitHub-hosted repositories and are cross-referenced rather than treated as primary. CVE-specific correspondence goes to `cve-mgmt@cloudsecurityalliance.org`.
+
+**Registered CNA scope**: "Vulnerabilities in software developed and maintained by the Cloud Security Alliance (`github.com/CloudSecurityAlliance/*`)."
+
+**Alternatives considered**:
+
+- **Continue requesting CVE IDs through GitHub as a CNA Root**: Workable, but it makes CSA dependent on another organization for identifiers it is now authorized to assign itself, and it adds latency and a coordination step to every publication. Not selected.
+- **Keep GHSA as the primary identifier with CSA-assigned CVE as secondary**: Preserves the existing tooling story (Dependabot, the GitHub Advisory Database) with a smaller documentation change. Not selected — GHSA is a platform-specific identifier, and CSA's CNA scope includes software whose advisories may be published outside GitHub. Leading with the identifier CSA itself controls is more durable.
+- **Drop GHSA emphasis entirely and publish only CVE**: Would forfeit automatic Dependabot notification and GitHub Advisory Database inclusion for CSA's own repositories at no benefit, since GHSA identifiers are issued automatically whether or not CSA references them. Not selected.
+
+**Rationale**: CSA is now the authority for identifiers covering its own software, and the documentation should say so plainly. A reporter reading the previous policy would reasonably have concluded CSA depended on GitHub as its CNA. Assigning directly removes that dependency, shortens the path to publication, and aligns the disclosure policy with the record registered at cve.org — which links to `docs/vulnerability-disclosure-policy.md` as CSA's public CNA policy. Note that the CNA scope is narrower than this program's overall reporting scope: websites, operated services, and repositories in other CSA GitHub organizations are handled under this program but do not receive CSA-assigned CVE IDs.
+
+---
+
+## 2026-08-27: Do not assign CVE IDs for pre-1.0 software
+
+**Decision**: CSA does not assign CVE IDs for vulnerabilities in releases prior to a project's 1.0 (or equivalent general availability) release. Such reports are still triaged, remediated, and — where the repository supports it — documented in a GitHub advisory. Once a project reaches 1.0, subsequent vulnerabilities are eligible for CVE assignment.
+
+**Alternatives considered**:
+
+- **Assign regardless of version number**: CNA Rules 4.2.10 only directs CNAs not to assign for products that are "not and were never publicly available", and a public pre-1.0 repository is publicly available, so this would be permissible. Not selected; see rationale.
+- **Case-by-case based on observed real-world use**: Assign for pre-1.0 software that is packaged, distributed, or known to be running in production. More faithful to actual risk, but it turns every pre-1.0 report into a judgment call, is difficult to state crisply in a public policy, and produces inconsistent outcomes across similar projects. Not selected.
+- **Exclude only explicitly labelled alpha/beta/preview releases**: A narrower exclusion, but it depends on labelling discipline CSA does not enforce uniformly across repositories. Not selected.
+
+**Rationale**: A CVE record carries an implicit representation that the affected software was offered as production-ready. CSA publishes pre-1.0 code for evaluation and community feedback and does not represent it as such, so assigning CVE IDs against it would misstate the maturity of the artifact and generate downstream noise in scanners and dependency tooling for software nobody was advised to deploy. Drawing the line at 1.0 is a bright-line rule that reporters and maintainers can both apply without negotiation. This is a discretionary CSA assignment policy, published as CNA Rules 3.2.6.1 requires, and not a rule imposed by the CVE Program.
 
 <!-- markdownlint-enable MD013 -->

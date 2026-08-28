@@ -1,6 +1,6 @@
 # Cloud Security Alliance vulnerability governance framework
 
-Version: 1.0 (2026-02-25)
+Version: 1.1 (2026-08-27)
 
 ## Purpose and openness
 
@@ -10,10 +10,11 @@ prompts, skills, and system instructions. This framework documents how CSA
 manages intake, analysis, remediation, and disclosure so reporters, partners,
 and internal teams share the same playbook. CSA publishes its governance
 materials publicly to invite feedback and demonstrate accountable practices
-while still handling embargoed or sensitive reports confidentially. More than
-sixty CSA members already function as CVE Numbering Authorities; their
-experience informs this framework, and community members may suggest
-improvements.
+while still handling embargoed or sensitive reports confidentially. CSA is
+itself a CVE Numbering Authority (CNA short name `CSAI`, CNA ID
+`CNA-2026-0025`) and assigns CVE IDs for its own software. More than sixty CSA
+members also function as CNAs; their experience informs this framework, and
+community members may suggest improvements.
 
 ## Scope and asset categories
 
@@ -32,6 +33,15 @@ steps, and disclosure path.
 
 Reporters only need to answer “Where did I find the issue?” Internal workflows
 handle classification and disclosure details.
+
+CSA's **CNA scope** is deliberately narrower than the scope above. As registered
+with the CVE Program it covers “vulnerabilities in software developed and
+maintained by the Cloud Security Alliance (`github.com/CloudSecurityAlliance/*`)”.
+Everything in the three categories is accepted, triaged, and remediated under
+this framework; only issues inside the CNA scope receive a CSA-assigned CVE ID.
+CSA also does not assign CVE IDs for pre-1.0 releases. See the
+[vulnerability disclosure policy](vulnerability-disclosure-policy.md) for the
+full assignment policy, which CNA Rules 3.2.6.1 requires CSA to publish.
 
 ## Reporting channels and safe harbor
 
@@ -88,9 +98,11 @@ and auditable lifecycle states.
    fixes, and track progress alongside interim mitigations.
 6. **Disclosure decision** — Choose advisory format, coordinate timelines with
    reporters and partners, and set embargo terms when required.
-7. **Publication** — Release advisories or updates through GitHub, the website,
-   or coordinated partner notices, and provide credit only when the platform
-   supports it and both parties agree.
+7. **Publication** — Release advisories or updates through GitHub, the CSA
+   advisories site, or coordinated partner notices, and provide credit only when
+   the platform supports it and both parties agree. For issues in CNA scope,
+   publish the CVE Record to the CVE List within 72 hours of disclosing the
+   assigned CVE ID.
 8. **Closure** — Verify fixes in production, update timelines and references,
    and archive correspondence. Rejections, duplicates, or disputes capture
    rationale and reference the original report.
@@ -154,9 +166,10 @@ replacing the governance foundation.
    IDs mapped to public references enable quick CVE requests or assignments.
 5. **Publication readiness** — Advisory workflows, rapid publication capability,
    and coordination playbooks deliver timely, consistent disclosures.
-6. **CVE assignment operations** — Reliable acquisition of CVE identifiers
-   (direct or coordinated) plus scope deconfliction for CSA assets and
-   third-party software.
+6. **CVE assignment operations** — Reached on 2026-04-28, when CSA was
+   authorized as a CNA. CSA now assigns CVE IDs directly for software in its CNA
+   scope and performs scope deconfliction with other CNAs. Ongoing work is
+   consistency of record quality rather than acquisition of identifiers.
 
 ## Reporter and ecosystem support
 
