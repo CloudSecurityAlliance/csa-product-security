@@ -20,6 +20,10 @@ General model-behavior research without a CSA artifact, third-party platforms, o
 - **GitHub Private Vulnerability Reporting (preferred for software or repo-hosted AI artifacts):** Open the repository’s **Security** tab, select **Report a vulnerability**, and provide reproduction steps, impact, and affected versions. Reports stay private until we publish an advisory, and GitHub credits the reporter automatically. GitHub login required.
 - **Email `security@cloudsecurityalliance.org`** (for websites/services, AI content published outside GitHub, or if you prefer not to use PVR). Include reproduction steps, impact, affected assets, and credit preference. Anonymous or pseudonymous reports and PGP-encrypted messages are accepted.
 
+## CVE identifiers
+
+CSA is an authorized [CVE Numbering Authority](https://www.cve.org/PartnerInformation/ListofPartners/partner/CSAI) (CNA short name `CSAI`, CNA ID `CNA-2026-0025`) and assigns CVE IDs for its own software directly. The registered CNA scope is *"vulnerabilities in software developed and maintained by the Cloud Security Alliance (`github.com/CloudSecurityAlliance/*`)"*, which is narrower than the reporting scope above — reports for other CSA repositories, websites, and services are still accepted and remediated, but do not receive a CSA-assigned CVE ID. CSA also does not assign CVE IDs for pre-1.0 releases; those issues are still fixed and may receive a GitHub advisory. See the [disclosure policy](https://github.com/CloudSecurityAlliance/csa-product-security/blob/main/docs/vulnerability-disclosure-policy.md#cve-identifiers-and-csas-role-as-a-cna) for the full assignment policy, and email [cve-mgmt@cloudsecurityalliance.org](mailto:cve-mgmt@cloudsecurityalliance.org) for CVE-specific questions such as scope deconfliction or record corrections.
+
 ## Service levels and disclosure
 
 CSA follows coordinated disclosure with explicit timelines:
@@ -28,7 +32,7 @@ CSA follows coordinated disclosure with explicit timelines:
 - Provide substantive status updates at least every **30 days** while a case is open.
 - Target remediation or public disclosure within **90 days** of acknowledgment unless we mutually agree on a different schedule.
 
-We default to publishing advisories openly through GitHub as soon as practical, even if a fix is still in progress. See the [SLA commitments](https://github.com/CloudSecurityAlliance/csa-product-security/blob/main/docs/sla-commitments.md) and [governance framework](https://github.com/CloudSecurityAlliance/csa-product-security/blob/main/docs/governance-framework.md) for the canonical definitions.
+We default to publishing advisories openly as soon as practical, even if a fix is still in progress. Where CSA assigns a CVE ID, the CVE Record is published to the CVE List within 72 hours of public disclosure. Published advisories are listed at [labs.cloudsecurityalliance.org/advisories](https://labs.cloudsecurityalliance.org/advisories/). See the [SLA commitments](https://github.com/CloudSecurityAlliance/csa-product-security/blob/main/docs/sla-commitments.md) and [governance framework](https://github.com/CloudSecurityAlliance/csa-product-security/blob/main/docs/governance-framework.md) for the canonical definitions.
 
 ## Safe harbor
 

@@ -9,7 +9,6 @@ index, not necessarily the content.
 
 ## Open
 
-- [ ] Reflect CSA's CNA status in the disclosure documentation → [`docs/pending-actions.md`](docs/pending-actions.md#reflect-csas-cna-status-in-the-disclosure-documentation)
 - [ ] Update `security.txt` to link this repository → [`docs/pending-actions.md`](docs/pending-actions.md#update-securitytxt)
 - [ ] Announce the governance framework (blog / newsletter / member mailing) → [`docs/pending-actions.md`](docs/pending-actions.md#announce-governance-framework)
 - [ ] Link the governance framework from cloudsecurityalliance.org/security → [`docs/pending-actions.md`](docs/pending-actions.md#link-governance-framework-from-security-page)
@@ -20,7 +19,11 @@ Things being considered, not commitments. An item lives here only while
 undecided; once decided it graduates to doing it, a GitHub Issue, or a
 documented decision.
 
-_Nothing currently under consideration._
+- Whether to ask MITRE to widen the registered CNA scope beyond
+  `github.com/CloudSecurityAlliance/*` to the other CSA-managed GitHub orgs
+  (`CloudSecurityAlliance-Chatbots`, `CloudSecurityAlliance-DataSets`,
+  `modelcontextprotocol-security`, `RiskRubric`). Those repos are in PSIRT scope
+  but outside CNA scope today, so they cannot receive CSA-assigned CVE IDs.
 
 ## Notes
 

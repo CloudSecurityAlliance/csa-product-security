@@ -1,6 +1,6 @@
 # Service level commitments
 
-Version: 1.0 (2026-02-25)
+Version: 1.1 (2026-08-27)
 
 CSA applies the following response targets to every in-scope vulnerability
 report.
@@ -30,6 +30,20 @@ report.
 - **Acceleration:** Critical issues may be addressed faster; CSA will communicate
   sooner whenever possible.
 
+## CVE Record publication
+
+Applies to vulnerabilities inside CSA's CNA scope that receive a CSA-assigned
+CVE ID.
+
+- **Target:** Publish the CVE Record to the CVE List within 24 hours of public
+  disclosure.
+- **Limit:** Publication within 72 hours is a requirement of the CVE Program's
+  [CNA Rules](https://www.cve.org/ResourcesSupport/AllResources/CNARules)
+  (4.5.1.4), not a CSA-chosen target, and applies regardless of the 5/30/90
+  targets above.
+- **Note:** Assigning a CVE ID commits CSA to publicly disclosing the
+  vulnerability. Reports that stay private are not given CVE IDs.
+
 ## Documentation
 
 For each report CSA records:
@@ -39,6 +53,8 @@ For each report CSA records:
 - Dates of each status update (or reason if a monthly update was not required).
 - The remediation or publication date, plus notes on any mutually agreed
   extensions.
+- For issues in CNA scope, the CVE ID assigned and the CVE Record publication
+  date — or the reason no CVE ID was assigned.
 
 This document is the authoritative source for SLA expectations referenced in the
 [governance framework](governance-framework.md), disclosure policy, and handling

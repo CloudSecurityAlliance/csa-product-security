@@ -1,6 +1,6 @@
 # Pending Actions
 
-Version: 1.0 (2026-02-25)
+Version: 1.1 (2026-08-27)
 
 Actions that need to be completed outside this repository to fully integrate the
 product security program.
@@ -16,24 +16,22 @@ the governance framework in sync.
 
 ## Reflect CSA's CNA status in the disclosure documentation
 
-**Status**: Pending
+**Status**: Completed (2026-08-27)
 
-CSA operates as a CVE Numbering Authority, but nothing in this repository says
-so. `docs/vulnerability-disclosure-policy.md` states that an advisory may
-"include a CVE ID requested via GitHub", and `README.md` mentions CNA only as a
-research program informing this practice. A reporter reading the current policy
-would reasonably conclude CSA depends on GitHub as its CNA.
+CSA was authorized as a CNA on 2026-04-28 (short name `CSAI`, CNA ID
+`CNA-2026-0025`, MITRE Top-Level Root). The documentation now states this
+directly: `docs/vulnerability-disclosure-policy.md` carries the assignment
+policy CNA Rules 3.2.6.1 requires CSA to publish, and the CVE-via-GitHub
+framing has been removed from the disclosure policy, README, and `SECURITY.md`.
+CVE is now the identifier of record with GHSA cross-referenced, pre-1.0
+releases are an explicit assignment exclusion, and the 72-hour CVE Record
+publication requirement is recorded in `docs/sla-commitments.md`. Both
+decisions are logged in `docs/decision-log.md`.
 
-Decide whether CSA assigns CVE IDs for its own products directly, and if so
-update the disclosure policy, `docs/vulnerability-handling-process.md`, and the
-root `SECURITY.md` so the identifier path matches what actually happens. The
-governance framework and SLA commitments should be checked for the same
-assumption.
-
-This surfaced while auditing `CloudSecurityAlliance/csa-skilljar` against this
-program on 2026-08-26. That repository's `SECURITY.md` deliberately delegates all
-process to this one and does not restate the CVE mechanism, so it needs no change
-either way.
+Note for future edits: cve.org links to
+`docs/vulnerability-disclosure-policy.md` as CSA's public CNA policy, so that
+file is externally referenced and should not be renamed or moved without
+updating the CNA record.
 
 ## Update security.txt
 
